@@ -597,6 +597,7 @@ function game() {
 
             items_fall(gridLength, levelSize)
 
+
         });
 
 
@@ -682,6 +683,7 @@ function game() {
 
         function _onDragStart(e) {
 
+            prevTarget = false;
             dragEl = e.target;
             console.log("Item Dragged", dragEl.id);
 
