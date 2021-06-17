@@ -241,7 +241,7 @@ body {
     font-family: 'Font Awesome 5 Free';
     background: #CFC;
     border-radius: 20%;
-    border: 3px solid green;
+    border: 3px solid red;
 }
 
 .brick-bomb-X-create,
@@ -250,7 +250,7 @@ body {
     font-family: 'Font Awesome 5 Free';
     background: #CCF;
     border-radius: 20%;
-    border: 3px solid blue;
+    border: 3px solid green;
 }
 
 .brick-bomb-X-block,
@@ -259,7 +259,7 @@ body {
     font-family: 'Font Awesome 5 Free';
     background: #FCC;
     border-radius: 20%;
-    border: 3px solid red;
+    border: 3px solid blue;
 }
 
 .brick-bomb-X-block:before,
@@ -285,20 +285,20 @@ body {
 .brick-bomb-X-block:after,
 .brick-bomb-P-block:after,
 .brick-bomb-O-block:after {
-    color: red;
+    color: blue;
     top: 20%;
 }
 
 .brick-bomb-X-delete:after,
 .brick-bomb-P-delete:after,
 .brick-bomb-O-delete:after {
-    color: green;
+    color: red;
 }
 
 .brick-bomb-X-create:after,
 .brick-bomb-P-create:after,
 .brick-bomb-O-create:after {
-    color: blue;
+    color: green;
 }
 
 .brick-bomb-X-block:before,
@@ -313,47 +313,47 @@ body {
     font-size: min(5vh, 5vw);
 }
 
-.brick-bomb-X-block:before {
-    color: #f7a6a6;
-    content: "\f00d";
-}
-
-.brick-bomb-P-block:before {
-    color: #f7a6a6;
-    content: "\f067";
-}
-
-.brick-bomb-O-block:before {
-    color: #f7a6a6;
-    content: "\f0c8";
-}
-
 .brick-bomb-X-delete:before {
-    color: #a7cfa7;
+    color: #f7a6a6;
     content: "\f00d";
 }
 
 .brick-bomb-P-delete:before {
-    color: #a7cfa7;
+    color: #f7a6a6;
     content: "\f067";
 }
 
 .brick-bomb-O-delete:before {
-    color: #a7cfa7;
+    color: #f7a6a6;
     content: "\f0c8";
 }
 
 .brick-bomb-X-create:before {
-    color: #ababf7;
+    color: #a7cfa7;
     content: "\f00d";
 }
 
 .brick-bomb-P-create:before {
-    color: #ababf7;
+    color: #a7cfa7;
     content: "\f067";
 }
 
 .brick-bomb-O-create:before {
+    color: #a7cfa7;
+    content: "\f0c8";
+}
+
+.brick-bomb-X-block:before {
+    color: #ababf7;
+    content: "\f00d";
+}
+
+.brick-bomb-P-block:before {
+    color: #ababf7;
+    content: "\f067";
+}
+
+.brick-bomb-O-block:before {
     color: #ababf7;
     content: "\f0c8";
 }
