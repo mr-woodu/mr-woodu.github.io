@@ -102,7 +102,7 @@ body {
     background-color: #eee;
     opacity: .9;
     padding: 5%;
-    position: absolute;
+    xposition: absolute;
     bottom: 0;
     right: 0;
     font-weight: bold;
@@ -270,18 +270,8 @@ body {
 .brick-bomb-O-delete:before,
 .brick-bomb-X-create:before,
 .brick-bomb-P-create:before,
-.brick-bomb-O-create:before,
-.brick-bomb-X-block:after,
-.brick-bomb-P-block:after,
-.brick-bomb-O-block:after,
-.brick-bomb-X-delete:after,
-.brick-bomb-P-delete:after,
-.brick-bomb-O-delete:after,
-.brick-bomb-X-create:after,
-.brick-bomb-P-create:after,
-.brick-bomb-O-create:after {
+.brick-bomb-O-create:before {
     font-size: min(3vh, 3vw);
-    position: absolute;
     top: 4px;
     bottom: 0;
     left: 0;
