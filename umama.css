@@ -1,5 +1,6 @@
-html,
-body {
+/* HTML and general styles */
+
+html, body {
     background: url(tile.png);
     background-size: 10% 100%;
     height: 100%;
@@ -23,32 +24,7 @@ body {
     height: 100%;
 }
 
-.falling {
-    transform: translateY(103%);
-    transition: transform ease-out 0.15s;
-}
-
-.rising {
-    transform: translateY(-103%);
-    transition: transform ease-out 0.15s;
-}
-
-.sliding-r {
-    transform: translateX(100%);
-    transition: transform ease-out 0.15s;
-}
-
-.sliding-l {
-    transform: translateX(-100%);
-    transition: transform ease-out 0.15s;
-}
-
-.removing {
-    background: blue;
-    transform: scale(0.1, 0.1);
-    transition-timing-function: ease;
-    transition: background 1s, transform 0.2s;
-}
+/* game grid styles */
 
 .grid-items {
     margin: auto;
@@ -112,14 +88,22 @@ body {
     xbackground-color: #fff;
 }
 
-.brick-1,
-.brick-2,
-.brick-3,
-.brick-4,
-.brick-5,
-.brick-6,
-.brick-7,
-.brick-8 {
+/* standard bricks */
+
+.brick-none {
+    background-color: #666;
+    background-size: 50%;
+}
+
+.brick-fixed {
+    background-color: #666;
+    border: 3px solid #333;
+    border-radius: 20%;
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20200730/ourmid/pngtree-cross-star-black-and-white-stripes-background-png-image_377470.jpg);
+    background-size: 100%;
+}
+
+.brick-1, .brick-2, .brick-3, .brick-4, .brick-5, .brick-6, .brick-7, .brick-8 {
     font-family: 'Font Awesome 5 Free';
 }
 
@@ -155,14 +139,7 @@ body {
     background-image: linear-gradient(to right, #ffc107, #e91e63);
 }
 
-.brick-1:after,
-.brick-2:after,
-.brick-3:after,
-.brick-4:after,
-.brick-5:after,
-.brick-6:after,
-.brick-7:after,
-.brick-8:after {
+.brick-1:after, .brick-2:after, .brick-3:after, .brick-4:after, .brick-5:after, .brick-6:after, .brick-7:after, .brick-8:after {
     font-size: min(6vh, 6vw);
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
@@ -174,22 +151,7 @@ body {
     text-align: center;
 }
 
-.grid-items .brick-1:after,
-.grid-items .brick-2:after,
-.grid-items .brick-3:after,
-.grid-items .brick-4:after,
-.grid-items .brick-5:after,
-.grid-items .brick-6:after,
-.grid-items .brick-7:after,
-.grid-items .brick-8:after,
-.grid100 .brick-1:after,
-.grid100 .brick-2:after,
-.grid100 .brick-3:after,
-.grid100 .brick-4:after,
-.grid100 .brick-5:after,
-.grid100 .brick-6:after,
-.grid100 .brick-7:after,
-.grid100 .brick-8:after {
+.grid-items .brick-1:after, .grid-items .brick-2:after, .grid-items .brick-3:after, .grid-items .brick-4:after, .grid-items .brick-5:after, .grid-items .brick-6:after, .grid-items .brick-7:after, .grid-items .brick-8:after, .grid100 .brick-1:after, .grid100 .brick-2:after, .grid100 .brick-3:after, .grid100 .brick-4:after, .grid100 .brick-5:after, .grid100 .brick-6:after, .grid100 .brick-7:after, .grid100 .brick-8:after {
     font-size: min(3.1vh, 3.1vw);
 }
 
@@ -226,6 +188,60 @@ body {
     color: #66A;
 }
 
+/* action bricks */
+
+.brick-right {
+    background-color: #666;
+    border: 1px solid #666;
+    background-image: url(https://i.gifer.com/Gapf.gif);
+    background-size: 100%;
+}
+
+.brick-left {
+    background-color: #666;
+    border: 1px solid #666;
+    background-image: url(https://i.gifer.com/Gapf.gif);
+    background-size: 100%;
+    /* flip background vertically */
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.brick-tele-down {
+    background-color: #666;
+    border: 1px solid #666;
+    background-image: url(https://s.wsj.net/public/resources/images/OG-CQ656_201905_GR_20190508192536.gif);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.brick-magnet {
+    background-color: #66A;
+    background-image: url(https://www.kindpng.com/picc/m/185-1851674_magnetic-vector-horseshoe-magnet-magnetism-logo-hd-png.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: initial;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+
+.brick-labor {
+    border-radius: 50% 50% 10% 10%;
+    background: #fff492;
+    border: 3px solid #ff5722;
+    font-size: min(4vh, 4vw);
+    text-align: center;
+    color: #e91e63;
+    font-weight: 900;
+}
+
 .brick-tele {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyL2mygzvZ9I_FSszgNeCKsb3uN4lOeETYbw&usqp=CAU);
     background-size: 180%;
@@ -235,42 +251,34 @@ body {
     border: 3px solid #999;
 }
 
-.brick-bomb-X-delete,
-.brick-bomb-O-delete,
-.brick-bomb-P-delete {
+.brick-other {
+    background-color: #66A;
+}
+
+/* action bricks - bombs */
+
+.brick-bomb-X-delete, .brick-bomb-O-delete, .brick-bomb-P-delete {
     font-family: 'Font Awesome 5 Free';
     background: #CFC;
     border-radius: 20%;
     border: 3px solid red;
 }
 
-.brick-bomb-X-create,
-.brick-bomb-O-create,
-.brick-bomb-P-create {
+.brick-bomb-X-create, .brick-bomb-O-create, .brick-bomb-P-create {
     font-family: 'Font Awesome 5 Free';
     background: #CCF;
     border-radius: 20%;
     border: 3px solid green;
 }
 
-.brick-bomb-X-block,
-.brick-bomb-O-block,
-.brick-bomb-P-block {
+.brick-bomb-X-block, .brick-bomb-O-block, .brick-bomb-P-block {
     font-family: 'Font Awesome 5 Free';
     background: #FCC;
     border-radius: 20%;
     border: 3px solid blue;
 }
 
-.brick-bomb-X-block:before,
-.brick-bomb-P-block:before,
-.brick-bomb-O-block:before,
-.brick-bomb-X-delete:before,
-.brick-bomb-P-delete:before,
-.brick-bomb-O-delete:before,
-.brick-bomb-X-create:before,
-.brick-bomb-P-create:before,
-.brick-bomb-O-create:before {
+.brick-bomb-X-block:before, .brick-bomb-P-block:before, .brick-bomb-O-block:before, .brick-bomb-X-delete:before, .brick-bomb-P-delete:before, .brick-bomb-O-delete:before, .brick-bomb-X-create:before, .brick-bomb-P-create:before, .brick-bomb-O-create:before {
     font-size: min(3vh, 3vw);
     top: 4px;
     bottom: 0;
@@ -282,34 +290,20 @@ body {
     content: "\f1e2";
 }
 
-.brick-bomb-X-block:after,
-.brick-bomb-P-block:after,
-.brick-bomb-O-block:after {
+.brick-bomb-X-block:after, .brick-bomb-P-block:after, .brick-bomb-O-block:after {
     color: blue;
     top: 20%;
 }
 
-.brick-bomb-X-delete:after,
-.brick-bomb-P-delete:after,
-.brick-bomb-O-delete:after {
+.brick-bomb-X-delete:after, .brick-bomb-P-delete:after, .brick-bomb-O-delete:after {
     color: red;
 }
 
-.brick-bomb-X-create:after,
-.brick-bomb-P-create:after,
-.brick-bomb-O-create:after {
+.brick-bomb-X-create:after, .brick-bomb-P-create:after, .brick-bomb-O-create:after {
     color: green;
 }
 
-.brick-bomb-X-block:before,
-.brick-bomb-P-block:before,
-.brick-bomb-O-block:before,
-.brick-bomb-X-create:before,
-.brick-bomb-P-create:before,
-.brick-bomb-O-create:before,
-.brick-bomb-X-delete:before,
-.brick-bomb-P-delete:before,
-.brick-bomb-O-delete:before {
+.brick-bomb-X-block:before, .brick-bomb-P-block:before, .brick-bomb-O-block:before, .brick-bomb-X-create:before, .brick-bomb-P-create:before, .brick-bomb-O-create:before, .brick-bomb-X-delete:before, .brick-bomb-P-delete:before, .brick-bomb-O-delete:before {
     font-size: min(5vh, 5vw);
 }
 
@@ -358,74 +352,7 @@ body {
     content: "\f0c8";
 }
 
-.brick-none {
-    background-color: #666;
-    background-size: 50%;
-}
-
-.brick-fixed {
-    background-color: #666;
-    border: 3px solid #333;
-    border-radius: 20%;
-    background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20200730/ourmid/pngtree-cross-star-black-and-white-stripes-background-png-image_377470.jpg);
-    background-size: 100%;
-}
-
-.brick-right {
-    background-color: #666;
-    border: 1px solid #666;
-    background-image: url(https://i.gifer.com/Gapf.gif);
-    background-size: 100%;
-}
-
-.brick-left {
-    background-color: #666;
-    border: 1px solid #666;
-    background-image: url(https://i.gifer.com/Gapf.gif);
-    background-size: 100%;
-    /* flip background vertically */
-    -webkit-transform: scaleX(-1);
-    -moz-transform: scaleX(-1);
-    -ms-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    transform: scaleX(-1);
-}
-
-.brick-tele-down {
-    background-color: #666;
-    border: 1px solid #666;
-    background-image: url(https://s.wsj.net/public/resources/images/OG-CQ656_201905_GR_20190508192536.gif);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.brick-magnet {
-    background-color: #66A;
-    background-image: url(https://www.kindpng.com/picc/m/185-1851674_magnetic-vector-horseshoe-magnet-magnetism-logo-hd-png.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    transition: initial;
-    -moz-transform: scaleY(-1);
-    -o-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    transform: scaleY(-1);
-    filter: FlipV;
-    -ms-filter: "FlipV";
-}
-
-.brick-labor {
-    border-radius: 50% 50% 10% 10%;
-    background: #fff492;
-    border: 3px solid #ff5722;
-    font-size: min(4vh,4vw);
-    text-align: center;
-    color: #e91e63;
-    font-weight: 900;
-}
-
-.brick-other {
-    background-color: #66A;
-}
+/* transition and activities styles */
 
 .filled {
     border: 6px dashed #000;
@@ -441,143 +368,88 @@ body {
     top: 0;
 }
 
-
-/*
-@media (max-width: 512px) {
-    .row {
-        width: 100%;
-        --bs-gutter-x: 0;
-    }
-    .col-8,
-    .col-4 {
-        width: 100%;
-    }
-    .grid25 {
-        width: 100%;
-        height: 100%;
-    }
-    .grid100 {
-        width: 100%;
-        height: 100%;
-    }
-    .grid-game {
-        border: 10px solid #666;
-    }
-    .grid-items {
-        width: 300px;
-        height: 150px;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(5, 1fr);
-    }
-    .divRec {
-        font-size: 15px;
-        min-width: 35px;
-        min-height: 35px;
-    }
-    .brick-1:after,
-    .brick-2:after,
-    .brick-3:after,
-    .brick-4:after,
-    .brick-5:after,
-    .brick-6:after,
-    .brick-7:after,
-    .brick-8:after {
-        font-size: 20px;
-        padding: 2px;
-    }
-    .brick-bomb-X-block:before,
-    .brick-bomb-P-block:before,
-    .brick-bomb-O-block:before,
-    .brick-bomb-X-block:after,
-    .brick-bomb-P-block:after,
-    .brick-bomb-O-block:after,
-    .brick-bomb-X-delete:before,
-    .brick-bomb-P-delete:before,
-    .brick-bomb-O-delete:before,
-    .brick-bomb-X-delete:after,
-    .brick-bomb-P-delete:after,
-    .brick-bomb-O-delete:after,
-    .brick-bomb-X-create:before,
-    .brick-bomb-P-create:before,
-    .brick-bomb-O-create:before,
-    .brick-bomb-X-create:after,
-    .brick-bomb-P-create:after,
-    .brick-bomb-O-create:after {
-        font-size: 20px;
-        top: 4px;
-    }
-    .brick-bomb-X-block:before,
-    .brick-bomb-P-block:before,
-    .brick-bomb-O-block:before,
-    .brick-bomb-X-create:before,
-    .brick-bomb-P-create:before,
-    .brick-bomb-O-create:before,
-    .brick-bomb-X-delete:before,
-    .brick-bomb-P-delete:before,
-    .brick-bomb-O-delete:before {
-        top: 0;
-        font-size: 30px;
-    }
+.falling {
+    transform: translateY(103%);
+    transition: transform ease-out 0.15s;
 }
 
-@media (max-height: 1300px) and (min-width: 512px) {
-    .grid25 {
-        width: 300px;
-        height: 300px;
-    }
-    .grid100 {
-        width: 500px;
-        height: 500px;
-    }
-    .grid-items {
-        width: 300px;
-        height: 150px;
-    }
-    .divRec {
-        font-size: 15px;
-    }
-    .brick-1:after,
-    .brick-2:after,
-    .brick-3:after,
-    .brick-4:after,
-    .brick-5:after,
-    .brick-6:after,
-    .brick-7:after,
-    .brick-8:after {
-        font-size: 24px;
-        padding: 3px;
-    }
-    .brick-bomb-X-block:before,
-    .brick-bomb-P-block:before,
-    .brick-bomb-O-block:before,
-    .brick-bomb-X-block:after,
-    .brick-bomb-P-block:after,
-    .brick-bomb-O-block:after,
-    .brick-bomb-X-delete:before,
-    .brick-bomb-P-delete:before,
-    .brick-bomb-O-delete:before,
-    .brick-bomb-X-delete:after,
-    .brick-bomb-P-delete:after,
-    .brick-bomb-O-delete:after,
-    .brick-bomb-X-create:before,
-    .brick-bomb-P-create:before,
-    .brick-bomb-O-create:before,
-    .brick-bomb-X-create:after,
-    .brick-bomb-P-create:after,
-    .brick-bomb-O-create:after {
-        font-size: 20px;
-        top: 0;
-    }
-    .brick-bomb-X-block:before,
-    .brick-bomb-P-block:before,
-    .brick-bomb-O-block:before,
-    .brick-bomb-X-create:before,
-    .brick-bomb-P-create:before,
-    .brick-bomb-O-create:before,
-    .brick-bomb-X-delete:before,
-    .brick-bomb-P-delete:before,
-    .brick-bomb-O-delete:before {
-        font-size: 35px;
-    }
+.rising {
+    transform: translateY(-103%);
+    transition: transform ease-out 0.15s;
 }
-*/
+
+.sliding-r {
+    transform: translateX(100%);
+    transition: transform ease-out 0.15s;
+}
+
+.sliding-l {
+    transform: translateX(-100%);
+    transition: transform ease-out 0.15s;
+}
+
+.removing {
+    background: blue;
+    transform: scale(0.1, 0.1);
+    transition-timing-function: ease;
+    transition: background 1s, transform 0.2s;
+}
+
+/* special level sytles */
+
+/* l2 diamonds */
+.level-2 .brick-1:after,
+.level-2 .brick-2:after,
+.level-2 .brick-3:after,
+.level-2 .brick-4:after,
+.level-2 .brick-5:after,
+.level-2 .brick-6:after,
+.level-2 .brick-7:after,
+.level-2 .brick-8:after {
+    content: "\f3a5";
+}
+
+/* l10 world flags */
+.level-10 .brick-1:after,
+.level-10 .brick-2:after,
+.level-10 .brick-3:after,
+.level-10 .brick-4:after,
+.level-10 .brick-5:after,
+.level-10 .brick-6:after,
+.level-10 .brick-7:after,
+.level-10 .brick-8:after {
+    content: "";
+}
+
+.level-10 .brick-1 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/new-caledonia/flag-square-250.png)
+}
+.level-10 .brick-2 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/saint-lucia/flag-square-250.png)
+}
+.level-10 .brick-3 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/wales/flag-square-250.png)
+}
+.level-10 .brick-4 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/georgia/flag-square-250.png)
+}
+.level-10 .brick-5 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/bhutan/flag-square-250.png)
+}
+.level-10 .brick-6 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/israel/flag-square-250.png)
+}
+.level-10 .brick-7 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/kyrgyzstan/flag-square-250.png)
+}
+.level-10 .brick-8 {
+    background-size: 100% 100%;
+    background-image: url(https://cdn.countryflags.com/thumbs/barbados/flag-square-250.png)
+}

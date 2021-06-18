@@ -1,5 +1,5 @@
 const MAX_LEVEL = 29; // 30 exists experimentally
-var CURRENT_LEVEL = 0;
+var CURRENT_LEVEL = 9;
 
 const BRICK_MAGNET = 140;
 const BRICK_NONE = 129;
@@ -494,6 +494,7 @@ function game() {
         console.log(levelNo, levelSize, levelType, UMAMA_DATA[levelNo].pass, UMAMA_DATA[levelNo].name)
 
         $("h1").html(`Level ${levelNo + 1} <small>(${UMAMA_DATA[levelNo].name})</small> | Score: <span class='score'>${_.sumBy(LEVEL_SCORE)}</span>`)
+        $(".grid-area").addClass(`level-${CURRENT_LEVEL + 1}`);
 
         $(".grid-items").html('');
         for (var idx = 1; idx < 9; idx++) {
@@ -615,6 +616,7 @@ function game() {
 
     function next_level(e) {
         if (e) e.preventDefault();
+        $(".grid-area").removeClass(`level-${CURRENT_LEVEL + 1}`);
         if (CURRENT_LEVEL < MAX_LEVEL) CURRENT_LEVEL++;
         else CURRENT_LEVEL = 0;
         start_game(CURRENT_LEVEL);
@@ -623,6 +625,7 @@ function game() {
 
     function prev_level(e) {
         if (e) e.preventDefault();
+        $(".grid-area").removeClass(`level-${CURRENT_LEVEL + 1}`);
         if (CURRENT_LEVEL > 0) CURRENT_LEVEL--;
         else CURRENT_LEVEL = MAX_LEVEL;
         start_game(CURRENT_LEVEL);
@@ -633,6 +636,7 @@ function game() {
     $(".l_next").on('click', next_level)
     $(".l_level").on('click', (e) => {
         if (e) e.preventDefault();
+        $(".grid-area").removeClass(`level-${CURRENT_LEVEL + 1}`);
         start_game(CURRENT_LEVEL);
     })
 
