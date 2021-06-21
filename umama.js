@@ -1,5 +1,5 @@
 const MAX_LEVEL = 29; // 30 exists experimentally
-var CURRENT_LEVEL = 9;
+var CURRENT_LEVEL = 0;
 
 const BRICK_MAGNET = 140;
 const BRICK_NONE = 129;

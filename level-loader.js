@@ -5,13 +5,14 @@ function load_original_level() {
 
     const levelLen = 12 + 8 * 4 + 1 + 10 + 400;
     const fs = require('fs'),
-        binary = fs.readFileSync('_original/data/levels.umk');
+        binary = fs.readFileSync('../_original/data/levels.umk');
 
     // level is 12x12
 
     for (let i = 0; i < 50; i++) {
         let pos = i * levelLen;
-        console.log(`Loading position ${pos}, level ${i + 1}`)
+        console.log(`Loading position ${pos}, level ${i + 1}`);
+        console.log([...binary.slice(pos + 12, pos + 44)])
         let level = {
             id: i + 1,
             name: binary.slice(pos, pos += 12).toString('utf-8').trim().replace(/\\u0000/, ""), // 12 bytes name
